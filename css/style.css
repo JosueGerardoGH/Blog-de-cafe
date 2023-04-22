@@ -59,6 +59,7 @@ h4 {
 
 img {
     max-width: 100%;
+    vertical-align: middle;
 }
 
 /** Utilidades **/
@@ -76,8 +77,20 @@ img {
 
 
 /** Header **/
-.header {
+
+/* En caso de soporte Webp*/
+.webp .header{
+    background-image: url(../img/banner.webp);
+
+}
+
+/* En caso de que el navegador no soporte Webp*/
+.no-webp .header{
     background-image: url(../img/banner.jpg);
+
+}
+
+.header {
     height: 60rem;
     background-size: cover;
     background-repeat: no-repeat;
@@ -162,7 +175,12 @@ img {
     font-size: 1.8rem;
     text-transform: uppercase;
     font-weight: 700;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem;
+    border: none;
+}
+
+.boton:hover {
+    cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -208,10 +226,102 @@ img {
     font-size: 2rem;
 }
 
+/** Sobre Nosotros**/
+@media (min-width: 768px) {
+    .nosotros {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nosotros__imagen,
+    .nosotros__texto {
+        flex-basis: 50%; /* da acceso a la version corta de flexbox */   
+    }
+
+    /* Mismo código que el de arriba pero utilizando Grid 
+    .nosotros {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+    */
+
+}
+
+/** Cursos **/
+.curso {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+
+.curso:last-of-type {
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .curso {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+}
+
+.curso__label {
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+}
+
+.curso__info {
+    font-weight: normal;
+
+}
+
+.curso__info,
+.curso__label {
+    font-size: 2rem;
+}
+
+/** Contacto **/
+.contacto-bg {
+    background-image: url(../img/contacto.jpg);
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.formulario {
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+}
+
+.campo {
+    display: flex;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+.campo__label {
+    flex: 0 0 9rem;
+    text-align: right;
+}
+
+.campo__field {
+    flex: 1;
+    border: 1px solid var(--gris);
+}
+
+.campo__field--textarea {
+    height: 20rem;
+}
+
+
 /** footer **/
 .footer {
     background-color: var(--negro);
     padding-bottom: 4rem ;
     margin-top: 4rem;
 }
+
 
